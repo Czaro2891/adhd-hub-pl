@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             <img 
               src="/logo.png" 
               alt="ADHD Hub PL" 
-              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-[384px] w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
