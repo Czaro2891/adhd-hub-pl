@@ -30,10 +30,10 @@ const Header: React.FC = () => {
           
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <img 
-              src="/logo.png" 
-              alt="ADHD Hub PL" 
-              className="h-[384px] w-auto object-contain transition-transform group-hover:scale-105"
+            <img
+              src="/logo.png"
+              alt="ADHD Hub PL"
+              className="h-12 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
