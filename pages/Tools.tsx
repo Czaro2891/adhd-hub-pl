@@ -5,10 +5,11 @@ import HabitTracker from '../components/HabitTracker';
 import TaskManager from '../components/TaskManager';
 import DayPlanner from '../components/DayPlanner';
 import MedicationManager from '../components/MedicationManager';
+import LowSpoonMealPlanner from '../components/LowSpoonMealPlanner';
 import GlassIcon from '../components/GlassIcon';
-import { Sparkles, CheckCircle2, Trophy, Clock, Calendar, Pill, ArrowLeft } from 'lucide-react';
+import { Sparkles, CheckCircle2, Trophy, Clock, Calendar, Pill, UtensilsCrossed, ArrowLeft } from 'lucide-react';
 
-type ToolId = 'TASK_BREAKER' | 'FOCUS' | 'HABITS' | 'TASKS' | 'DAY_PLANNER' | 'MEDICATIONS' | null;
+type ToolId = 'TASK_BREAKER' | 'FOCUS' | 'HABITS' | 'TASKS' | 'DAY_PLANNER' | 'MEDICATIONS' | 'MEAL_PLANNER' | null;
 
 const Tools: React.FC = () => {
   const [activeTool, setActiveTool] = useState<ToolId>(null);
@@ -61,6 +62,14 @@ const Tools: React.FC = () => {
       icon: <Pill className="w-full h-full" />,
       color: 'pink' as const,
       component: <MedicationManager />
+    },
+    {
+      id: 'MEAL_PLANNER' as const,
+      title: 'Posiłek na Niskiej Energii',
+      desc: 'Mam 5% baterii. Co mam zjeść? (0 gotowania)',
+      icon: <UtensilsCrossed className="w-full h-full" />,
+      color: 'orange' as const,
+      component: <LowSpoonMealPlanner />
     }
   ];
 
