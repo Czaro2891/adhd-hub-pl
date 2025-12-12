@@ -1,13 +1,31 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-// Initialize Gemini
-// Ensure process.env.API_KEY is available in your environment variables
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+let ai: any = null;
+const getAI = () => {
+  if (ai) return ai;
+  if (typeof window !== 'undefined') {
+    // Running in the browser — do NOT instantiate the server-side client here.
+    // The Google GenAI client requires a secret API key and must run on a trusted server.
+    return null;
+  }
+  ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  return ai;
+};
 
 export const breakDownTask = async (taskDescription: string): Promise<string[]> => {
   if (!taskDescription.trim()) return [];
 
   try {
+    const client = getAI();
+    if (!client) {
+      console.warn('Gemini client not available in browser — call the API from a server-side endpoint.');
+      return [
+        'Weź głęboki oddech.',
+        'Przygotuj potrzebne rzeczy.',
+        'Zrób pierwszą mała część zadania.',
+      ];
+    }
+
     const model = 'gemini-2.5-flash';
     const prompt = `
       Jesteś empatycznym asystentem dla osoby z ADHD. 
@@ -21,7 +39,7 @@ export const breakDownTask = async (taskDescription: string): Promise<string[]> 
       Zwróć wynik jako czystą listę JSON stringów.
     `;
 
-    const response = await ai.models.generateContent({
+    const response = await client.models.generateContent({
       model: model,
       contents: prompt,
       config: {

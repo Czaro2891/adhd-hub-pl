@@ -1,0 +1,10 @@
+/* Minimal project CSS — kept intentionally small as Tailwind is loaded via CDN */
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-color: #fff;
+  color: #111827;
+}
