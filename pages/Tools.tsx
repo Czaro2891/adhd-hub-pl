@@ -3,10 +3,11 @@ import TaskBreakerTool from '../components/TaskBreakerTool';
 import FocusTimer from '../components/FocusTimer';
 import HabitTracker from '../components/HabitTracker';
 import TaskManager from '../components/TaskManager';
+import DayPlanner from '../components/DayPlanner';
 import GlassIcon from '../components/GlassIcon';
-import { Sparkles, CheckCircle2, Trophy, Clock, ArrowLeft } from 'lucide-react';
+import { Sparkles, CheckCircle2, Trophy, Clock, Calendar, ArrowLeft } from 'lucide-react';
 
-type ToolId = 'TASK_BREAKER' | 'FOCUS' | 'HABITS' | 'TASKS' | null;
+type ToolId = 'TASK_BREAKER' | 'FOCUS' | 'HABITS' | 'TASKS' | 'DAY_PLANNER' | null;
 
 const Tools: React.FC = () => {
   const [activeTool, setActiveTool] = useState<ToolId>(null);
@@ -43,6 +44,14 @@ const Tools: React.FC = () => {
       icon: <Trophy className="w-full h-full" />,
       color: 'orange' as const,
       component: <HabitTracker />
+    },
+    {
+      id: 'DAY_PLANNER' as const,
+      title: 'Planer Dnia',
+      desc: 'Wizualny rozkład dnia. Widzisz, ile fizycznie się mieści w 24 godzinach.',
+      icon: <Calendar className="w-full h-full" />,
+      color: 'green' as const,
+      component: <DayPlanner />
     }
   ];
 
