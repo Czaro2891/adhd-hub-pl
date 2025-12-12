@@ -4,10 +4,11 @@ import FocusTimer from '../components/FocusTimer';
 import HabitTracker from '../components/HabitTracker';
 import TaskManager from '../components/TaskManager';
 import DayPlanner from '../components/DayPlanner';
+import MedicationManager from '../components/MedicationManager';
 import GlassIcon from '../components/GlassIcon';
-import { Sparkles, CheckCircle2, Trophy, Clock, Calendar, ArrowLeft } from 'lucide-react';
+import { Sparkles, CheckCircle2, Trophy, Clock, Calendar, Pill, ArrowLeft } from 'lucide-react';
 
-type ToolId = 'TASK_BREAKER' | 'FOCUS' | 'HABITS' | 'TASKS' | 'DAY_PLANNER' | null;
+type ToolId = 'TASK_BREAKER' | 'FOCUS' | 'HABITS' | 'TASKS' | 'DAY_PLANNER' | 'MEDICATIONS' | null;
 
 const Tools: React.FC = () => {
   const [activeTool, setActiveTool] = useState<ToolId>(null);
@@ -52,6 +53,14 @@ const Tools: React.FC = () => {
       icon: <Calendar className="w-full h-full" />,
       color: 'green' as const,
       component: <DayPlanner />
+    },
+    {
+      id: 'MEDICATIONS' as const,
+      title: 'Magazynier Leków',
+      desc: 'Śledź zapasy leków i otrzymuj powiadomienia przed skończeniem się.',
+      icon: <Pill className="w-full h-full" />,
+      color: 'pink' as const,
+      component: <MedicationManager />
     }
   ];
 
