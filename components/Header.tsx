@@ -26,14 +26,15 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-warm-50/90 dark:bg-warm-950/90 backdrop-blur-md border-b border-warm-200 dark:border-warm-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-start py-4 overflow-visible">
           
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img
               src="/logo.png"
               alt="ADHD Hub PL"
-              className="h-12 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-[384px] w-auto object-contain transition-transform group-hover:scale-105"
+              style={{ marginTop: '8px' }}
             />
           </Link>
 
