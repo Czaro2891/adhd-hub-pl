@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   if (isAdminRoute) return null;
 
   return (
-    <header className="sticky top-0 z-50 bg-warm-50/90 dark:bg-warm-950/90 backdrop-blur-md border-b border-warm-200 dark:border-warm-800 transition-colors duration-300 pb-4 md:pb-6">
+    <header className="sticky top-0 z-50 bg-warm-50/90 dark:bg-warm-950/90 backdrop-blur-md border-b border-warm-200 dark:border-warm-800 transition-colors duration-300 pb-4 md:pb-6 min-h-[64px] md:min-h-[96px] lg:min-h-[128px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
@@ -33,7 +33,8 @@ const Header: React.FC = () => {
             <img
               src="/logo.png"
               alt="ADHD Hub PL"
-              className="h-12 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-16 sm:h-20 md:h-24 lg:h-32 xl:h-36 2xl:h-40 w-auto max-w-full object-contain transition-transform group-hover:scale-105"
+              style={{ maxHeight: 'calc(100vh - 120px)' }}
             />
           </Link>
 
